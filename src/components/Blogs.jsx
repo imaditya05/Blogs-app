@@ -5,7 +5,7 @@ import Spinner from './Spinner';
 const Blogs = () => {
   const { posts, loading } = useContext(AppContext);
   return (
-    <div>
+    <div className="w-11/12 min-h-screen max-w-[650px] py-8 flex flex-col gap-y-7 justify-center items-center mt-20 mb-10">
       {' '}
       {loading ? (
         <Spinner />
@@ -14,15 +14,21 @@ const Blogs = () => {
       ) : (
         posts.map((post) => (
           <div key={post.id}>
-            <p className="text-2xl">{post.title}</p>
-            <p>
-              By <span>{post.author}</span> on <span>{post.category}</span>
+            <p className="text-lg font-bold">{post.title}</p>
+            <p className="text-xs">
+              By <span className="italic">{post.author}</span> on{' '}
+              <span className="font-bold underline">{post.category}</span>
             </p>
-            <p>Posted on {post.date}</p>
-            <p>{post.content}</p>
-            <div>
+            <p className="text-xs">Posted on {post.date}</p>
+            <p className="text-sm mt-3">{post.content}</p>
+            <div className="flex gap-x-3 gap-y-1 flex-wrap ">
               {post.tags.map((tag, index) => {
-                return <span key={index}>{`#${tag}`}</span>;
+                return (
+                  <span
+                    key={index}
+                    className="text-blue-500 font-bold underline text-xs mt-3"
+                  >{` #${tag}`}</span>
+                );
               })}
             </div>
           </div>

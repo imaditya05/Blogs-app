@@ -13,7 +13,7 @@ export default function App() {
   }, []);
 
   return (
-    <div>
+    <div className="w-full h-full flex flex-col justify-center items-center gap-y-2 bg-[#E5F4E7]">
       <Header />
       <Blogs />
       <Pagination />
