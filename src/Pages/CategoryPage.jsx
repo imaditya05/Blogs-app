@@ -2,30 +2,35 @@ import React from 'react';
 import Header from '../components/Header';
 import Blogs from '../components/Blogs';
 import Pagination from '../components/Pagination';
-import { useLocation, useNavigation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CategoryPage = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigate();
   const location = useLocation();
-  const category = location.split('/').at(-1);
-  <div>
-    <Header />
+  console.log(location);
+  const category = location.pathname.split('/').at(-1);
+  console.log(category);
+
+  return (
     <div>
-      <button
-        className="border rounded-md px-2 py-1 shadow-md bg-[#F1FDF3] text-sm"
-        onClick={() => {
-          navigation(-1);
-        }}
-      >
-        Back
-      </button>
-      <h2>
-        Blogs of category <span>{category}</span>
-      </h2>
-      <Blogs />
-      <Pagination />
+      <Header />
+      <div className=" w-full h-full flex flex-col justify-center items-center gap-y-2 bg-[#E5F4E7]">
+        <button
+          className="border rounded-md px-2 py-1 shadow-md bg-[#F1FDF3] text-sm mt-20"
+          onClick={() => {
+            navigation(-1);
+          }}
+        >
+          Back
+        </button>
+        <h2 className="text-2xl font-bold">
+          Blogs on <span>{category}</span>
+        </h2>
+        <Blogs />
+        <Pagination />
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default CategoryPage;
