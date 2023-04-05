@@ -10,16 +10,16 @@ const TagPage = () => {
   return (
     <div>
       <Header />
-      <div className=" w-full h-full flex flex-col justify-center items-center gap-y-4 bg-[#E5F4E7]">
+      <div className=" w-full h-full flex flex-col justify-start items-center gap-y-4 bg-[#E5F4E7]">
         <button
-          className="border rounded-md px-2 py-1 shadow-md bg-[#F1FDF3] text-sm mt-20   "
+          className="border rounded-md px-2 py-1 shadow-md bg-[#F1FDF3] text-sm mt-20 "
           onClick={() => {
             navigation(-1);
           }}
         >
           Back
         </button>
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold text-center ">
           Blogs Tagged <span>#{tag}</span>
         </h2>
         <Blogs />
